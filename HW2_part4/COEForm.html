@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>COE Petition Form</title>
+</head>
+
+<body>
+	<header>
+		<h1 style="text-align:center"> Northeastern University Graduate School of Engineering </h1>
+		<h1 style="text-align:center"> Petition Form </h1>
+		<p style="text-align:center">Follow the instructions on the next page. Use fillable pdf or PRINT CLEARLY to ensure your writing is legible. <br/>
+		You must provide all required supporting documents before a final decision is made on your petition.</p>
+	</header>
+	
+
+	
+	<main>
+		<form style="text-align:center" action="part4" method="get">
+		<fieldset>
+			<legend><em>Personal Information</em></legend>
+			NU ID <input type="text" name="personalinfo" id=”txtID” />
+			Current Program/Concentration  <input type="text"  name="personalinfo" id=”txtProgram” /> <br/> <br/>
+			Last Name <input type="text"  name="personalinfo" id=”txtLastName” /> 
+			First Name <input type="text"  name="personalinfo" id=”txtFirstName” /> 
+			Middle Name <input type="text" name="personalinfo" id=”txtMiddleName” /> <br/><br/>
+
+			Local Address: 
+			Street <input type="text" name = "address" id=”txtStreet” /> 
+			City <input type="text"  name = "address" id=”txtCity” />
+			State <input type="text" name = "address" id=”txtState” />
+			Zipcode <input type="text" name = "address" id=”txtZipcode” /> <br/><br/>
+			Phone <input type="text"  name = "phone" id=”txtPhone” />
+			Husky Email  <input type="text"  name = "email" id=”txtEmail” /> @husky.neu.edu <br/><br/>
+
+			Current Degree Level: 
+			<input type = "checkbox" name="degree" value="boxMS" /> MS
+			<input type = "checkbox" name="degree" value ="boxPHD" /> PhD
+			<input type = "checkbox" name="degree" value ="boxCertificate" /> Certificate Only
+			<input type = "checkbox" name="degree" value ="boxSpecial" /> Special Student <br/><br/>
+			<input type = "checkbox" name="degree" value ="boxInternational" /> International
+			<input type = "checkbox" name="degree" value ="boxDomestic" /> Domestic  <br/><br/>
+		</fieldset>
+
+		<fieldset>
+			<legend><em>Petition Information</em></legend>
+			Check all that apply:
+			<input type = "checkbox" name = "petinfo" value="boxElective" /> Elective outside core curriculum
+			<input type = "checkbox" name = "petinfo" value ="boxCourseWaive" /> Core course waive
+			<input type = "checkbox" name = "petinfo" value ="boxChangeStatus" /> Change in status 
+			<input type = "checkbox" name = "petinfo" value ="boxCourseRepeat" /> Course repeat / official substitution <br/><br/>
+			<input type = "checkbox" name = "petinfo" value ="boxExtension" /> Extension of time limit to programm completion
+			<input type = "checkbox" name = "petinfo" value ="boxOhter" /> Other (Please specify): 
+			<input type="text" name="pettext" /> <br/><br/>
+
+			1. For each course concerned, please provide the information below:
+			<table style="width:100%">
+				<tr>
+					<th>Course Name</th>
+					<th>Term</th>
+					<th>CRN#</th>
+					<th>Course#</th>
+					<th># of Credits</th>		
+				</tr>
+				<tr>
+					<td><input type="text" name="course" id=”txt11” /> </td>
+					<td><input type="text" name="course" id=”txt12” /> </td>
+					<td><input type="text" name="course" id=”txt13” /> </td>
+					<td><input type="text" name="course" id=”txt14” /> </td>
+					<td><input type="text" name="course" id=”txt15” /> </td>
+				</tr>
+				<tr>
+					<td><input type="text" name="course" id=”txt21” /> </td>
+					<td><input type="text" name="course" id=”txt22” /> </td>
+					<td><input type="text" name="course" id=”txt23” /> </td>
+					<td><input type="text" name="course" id=”txt24” /> </td>
+					<td><input type="text" name="course" id=”txt25” /> </td>
+				</tr>
+				<tr>
+					<td><input type="text" name="course" id=”txt31” /> </td>
+					<td><input type="text" name="course" id=”txt32” /> </td>
+					<td><input type="text" name="course" id=”txt33” /> </td>
+					<td><input type="text" name="course" id=”txt34” /> </td>
+					<td><input type="text" name="course" id=”txt35” /> </td>
+				</tr>	
+			</table> <br/><br/>
+
+			2.What are you petitioning? Please explain (attach separate sheet if necessary):<br/><br/>
+			<textarea name="reason" id = "txtFeedback" rows=20 cols=50>(Please enter your explanation here)</textarea> <br/><br/>
+
+			3. Student signature: <input type="text" name = "signature" id="txtStudentSig" />
+			Date: <input type="Date" name="sigdate" value=”dateStudentDate” /> 	<br/><br/>
+		</fieldset>
+
+		<fieldset>
+			SUBMIT PETITION AND ANY SUPPORTING DOCUMENTS TO YOUR PROGRAM ADVISOR  <br/><br/>
+			<input type="submit" name="button" value="Submit" size=40 /> 
+		</fieldset>
+
+		<fieldset>
+			<legend><em>Advisor Only</em></legend>
+			Recommendation:
+			<input type = "checkbox" name ="advisor" value= "boxApproveAdv" disabled /> Approved
+			<input type = "checkbox" name ="advisor" value= "boxDenyAdv"  disabled/> Denied <br/><br/>
+			Signature <input type="text" name="advisor" readonly/> 
+			Print Name <input type="text" name="advisor" readonly/><br/><br/>
+			Advisor's comment and/or instructions: <input type="text" name="advisor" readonly/> 
+			Date: <input type="Date" name="advisor" readonly/>  <br/><br/>
+			ECE Graduate Committee Chair: <input type="text" name="advisor" readonly />
+			Date: <input type="Date" name="advisor" readonly/>  <br/><br/>
+		</fieldset>
+
+		<fieldset>
+			<legend><em>Graduate School Officials Only</em></legend>
+			Decisions: <input type = "checkbox" name ="official" value = "boxApproveOff" disabled /> Approved
+			<input type = "checkbox" name ="official" value ="boxDenyOff" disabled/> Denied
+			<input type = "checkbox" name ="official" value ="boxNoAction" disabled /> No Action
+			<input type = "checkbox" name ="official" value ="boxReturn" disabled/> Returned for Additional Information
+			<input type = "checkbox" name ="official" value ="boxReport" disabled /> ASC Report Filed <br/><br/>
+			Comment to student: <input type="text" name="official" readonly/> 
+			Graduate School Authorization <input type="text" name ="official"  readonly />  <br/><br/>
+			Date: <input type="Date" name ="official"  readonly/> 
+			Effetive Date: <input type="Date" name ="official"  readonly/> <br/><br/>
+		</fieldset>
+		</form>
+	</main>
+
+	<footer style="text-align:center">
+		Graduate School of Engineering <br/>
+		130 Snell Engineering Center <br/>
+		Northeastern University <br/>
+		360 Huntington Avenue <br/>
+		Boston, MA 02115-5000 <br/><br/>
+
+		Phone: 617.373.2711 <br/>
+		Fax: 617.373.2571 <br/>
+		Web: <a href="http://www.coe.neu.edu/gse"> www.coe.neu.edu/gse </a>  <br/>
+	</footer>
+
+</body>
+</html>
