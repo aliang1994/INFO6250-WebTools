@@ -42,6 +42,7 @@ public class AddController extends SimpleFormController {
         PreparedStatement pst = null;
         try{
             con = ds.getConnection();//
+            con.setAutoCommit(false);
             String updateString = "Insert into movies (title,actor,actress,genre,releaseyear) values(?,?,?,?,?)";
                
             String title = movie.getTitle();
@@ -56,6 +57,8 @@ public class AddController extends SimpleFormController {
             pst.setString(3,actress);
             pst.setString(4,genre );
             pst.setInt(5, year);
+            pst.executeUpdate();
+            con.commit();
         }
         catch(SQLException exp){
             System.out.println("SQLException" + exp.getMessage());

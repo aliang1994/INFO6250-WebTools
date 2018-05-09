@@ -81,7 +81,8 @@ public class HomeController extends AbstractController {
             Connection con = null;
             PreparedStatement pst  = null;
             try{
-                con = ds.getConnection();            
+                con = ds.getConnection();     
+                con.setAutoCommit(false);
                 String updatequery = "INSERT INTO SALESORDERCSV "
                     + "(SalesOrderID,RevisionNumber,OrderDate,"
                     + "DueDate,ShipDate,Status,OnlineOrderFlag,"
@@ -112,6 +113,8 @@ public class HomeController extends AbstractController {
                 for(int i : res){
                     count = count + i;
                 }
+                con.commit();
+
                 session.setAttribute("DataCount", count);
 
                 mav = new ModelAndView("index");

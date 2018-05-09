@@ -19,6 +19,16 @@ public class User {
     
     private Set<String> courses  = new HashSet<>();
 
+    public Set<String> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(Set<String> courses) {
+        this.courses = courses;
+    }
+    
+    
+
     public int getUserId() {
         return userId;
     }

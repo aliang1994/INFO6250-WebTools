@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +13,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <form:form commandName="userinfo" method="post"  enctype="multipart/form-data">
+            First Name: <form:input path="firstname"   /><br/><br/>
+            <input type="file" name="photo" /><br/>
+            <input type="submit" value="Submit" />
+        </form:form>
     </body>
 </html>

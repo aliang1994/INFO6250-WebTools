@@ -14,8 +14,5 @@ import org.hibernate.cfg.Configuration;
  */
 public abstract class DAO {
     Configuration conf = new Configuration();
-    SessionFactory sf = conf.configure().buildSessionFactory();
-    
-    
-    
+    SessionFactory sf = conf.configure("hibernate.cfg.xml").buildSessionFactory();
 }

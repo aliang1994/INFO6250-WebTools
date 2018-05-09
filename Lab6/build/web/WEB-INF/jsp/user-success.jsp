@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1> User logged in successfully!</h1>
+        <h1> User uploaded file successfully!</h1>
     </body>
 </html>
 

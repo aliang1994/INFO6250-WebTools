@@ -37,6 +37,7 @@ public class BookController extends AbstractController {
         PreparedStatement pst = null;
         try{
             con = ds.getConnection();
+            con.setAutoCommit(false);
 
             String updateString = "Insert into books (isbn,title,authors,price) values(?,?,?,?)";
             
@@ -52,6 +53,8 @@ public class BookController extends AbstractController {
                 pst.setString(2,title );
                 pst.setString(3,author);
                 pst.setFloat(4,price );
+                pst.executeUpdate();
+                con.commit();
             }
         }
         catch(SQLException exp){
