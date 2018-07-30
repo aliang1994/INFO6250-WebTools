@@ -1,0 +1,103 @@
+class RequestWrapper extends HttpServletRequestWrapper {
+        
+		public RequestWrapper(HttpServletRequest request) {
+	            super(request);
+	        }
+	        
+	        public String sanitize(String string){
+	            string = string.replace("<", "");
+	            string = string.replace(">","");
+	            string = string.replace(";","");
+	            string = string.replace("#","");
+	            string = string.replace("?","");
+	            string = string.replace("*","");
+	            string = string.replace("&","");
+	            string = string.replace("@","");
+	            string = string.replace("%","");
+	            string = string.replace("^","");
+	            string = string.replace("$","");
+	            string = string.replace("(","");
+	            string = string.replace(")","");
+	            string = string.replace("{","");
+	            string = string.replace("}","");
+	            string = string.replace("\"","");
+	            string = string.replace("=","");
+	            string = string.replace("!","");
+	            string = string.replace("'","");
+	       
+	            return string;
+	        }
+	        
+	        protected Hashtable localParams = null;
+	        
+	        public void setParameter(String name, String[] values) {
+	            if (debug) {
+	                System.out.println("NewFilter::setParameter(" + name + "=" + values + ")" + " localParams = " + localParams);
+	            }
+	            
+	            if (localParams == null) {
+	                localParams = new Hashtable();
+	                // Copy the parameters from the underlying request.
+	                Map wrappedParams = getRequest().getParameterMap();
+	                Set keySet = wrappedParams.keySet();
+	                for (Iterator it = keySet.iterator(); it.hasNext();) {
+	                    Object key = it.next();
+	                    Object value = wrappedParams.get(key);
+	                    localParams.put(key, value);
+	                }
+	            }
+	            localParams.put(name, values);
+	        }
+	        
+	        @Override
+	        public String getParameter(String name) {
+	            if (debug) {
+	                System.out.println("NewFilter::getParameter(" + name + ") localParams = " + localParams);
+	            }
+	            if (localParams == null) {
+	                return sanitize(getRequest().getParameter(name));
+	            }
+	            Object val = localParams.get(name);
+	            if (val instanceof String) {
+	                return (String) val;
+	            }
+	            if (val instanceof String[]) {
+	                String[] values = (String[]) val;
+	                return values[0];
+	            }
+	            return (val == null ? null : val.toString());
+	        }
+	        
+	        @Override
+	        public String[] getParameterValues(String name) {
+	            if (debug) {
+	                System.out.println("NewFilter::getParameterValues(" + name + ") localParams = " + localParams);
+	            }
+	            if (localParams == null) {
+	                return getRequest().getParameterValues(name);
+	            }
+	            return (String[]) localParams.get(name);
+	        }
+	        
+	        @Override
+	        public Enumeration getParameterNames() {
+	            if (debug) {
+	                System.out.println("NewFilter::getParameterNames() localParams = " + localParams);
+	            }
+	            if (localParams == null) {
+	                return getRequest().getParameterNames();
+	            }
+	            return localParams.keys();
+	        }        
+	        
+	        @Override
+	        public Map getParameterMap() {
+	            if (debug) {
+	                System.out.println("NewFilter::getParameterMap() localParams = " + localParams);
+	            }
+	            if (localParams == null) {
+	                return getRequest().getParameterMap();
+	            }
+	            return localParams;
+	        }
+	    }

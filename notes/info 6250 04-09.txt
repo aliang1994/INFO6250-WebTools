@@ -1,0 +1,141 @@
+jQuery:
+$.ajax({
+	code here; created xmlREQUEST object
+})
+$.get()
+$.post()
+
+
+04/09 Monday INFO 6250
+
+
+Calling AJAX content:
+
+jsp 
+out.println(data)
+----------------------------
+servlet
+out.println(data)
+----------------------------
+Spring controller
+ModelAndView
+	out.prinln(data);
+	return null;
+----------------------------
+Spring controller
+@ResponseBody
+	return string
+----------------------------
+
+
+
+1.Jquery
+-core (javascript)
+-UI
+-mobile
+
+jquery - css selector
+
+<script src = https://ajax.googleapis.com/ajax/libs >
+
+jquery - odd/even selector
+$(tr:odd)
+$(tr:even)
+$("a"): select all the a 
+
+
+------------------------------
+example:
+
+<div></div>
+<a href=""> detail 3</a>
+<div></div>
+
+// add a click function 
+$("a").click(function(){
+	event.preventDefault();
+	alert("a clicked");
+	var currElemen  t = $(this);  // put the pointer to "this" a tag
+	//$(this).next().html("some data");
+	$.post("user.htm", {name:"john", age:"23"}){
+		$(this).next().html("some data");  //this pointer is not pointed to the element
+	};
+	//$("div").html("some data");
+	
+	return false;
+})
+
+javascript object notation : json
+
+-----------------------------
+angular: on top of jquery to perform dom manipulation easier
+<span>{{user}} </span>
+
+
+ajax - submit button / anchor tag: not working with default behavior
+event.preventDefault()
+-----------------------------
+ajax
+$.ajax(POST)
+$.post()
+
+
+
+
+--------------------------------
+2.dwr direct web remoting
+Remote Method Invokation (RMI)
+
+
+<script>
+	Demo.getData(42, {
+	 	callback; function(str){   // dom traversal
+	 		alert(str);
+	 	}
+	})
+</script>
+
+
+1) web.xml:
+	<servlet>
+        <servlet-name>dwr-invoker</servlet-name>
+        <display-name>DWR Servlet</display-name>
+        <description>Direct Web Remoter Servlet</description>
+        <servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>dwr-invoker</servlet-name>
+        <url-pattern>/dwr/*</url-pattern>
+    </servlet-mapping>
+
+
+2) dwr.xml
+	<dwr>
+	    <allow>
+	        <convert converter="bean" match="dwr.sample.Apartment"/>
+	        <create creator="new" javascript="ApartmentDAO" class="dwr.sample.ApartmentDAO">   // java class
+	            <include method="findApartments"/>
+	            <include method="countApartments"/>
+	        </create>
+	    </allow>
+	</dwr>
+
+3) jsp
+	<script src='dwr/interface/ApartmentDAO.js'></script>
+  	<script src='dwr/engine.js'></script>
+  	<script src='dwr/util.js'></script
+
+  	function updateTotal() {
+	    $("resultTable").style.display = 'none';
+	    var bedrooms = document.getElementById("bedrooms").value;
+	    var bathrooms = document.getElementById("bathrooms").value;
+	    var price = document.getElementById("price").value;
+	    ApartmentDAO.countApartments(loadTotal, bedrooms, bathrooms, price);
+	}
+-----------------------------
+3.angular

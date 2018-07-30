@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<title>REST via jQuery</title>
+</head>
+
+<body>
+	<button>Get Server Data</button>
+	<div>
+		<p>The ID: <span id="greeting_id"></span></p>
+		<p>The Content: <span id="greeting_content"></span></p>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$("button").click(function(){
+			$.get("http://rest-service.guides.spring.io/greeting").done(function(data){
+				$("#greeting_id").html(data.id);
+				$("#greeting_content").html(data.content);
+			});
+		});
+	</script>
+	</body>
+</html>

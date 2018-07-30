@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app>
+<head>
+<title>Hello AngularJS</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+<script>
+	function Hello($scope, $http) {
+		$http.get('http://rest-service.guides.spring.io/greeting').success(function(data) {
+					alert(data.id + ": " + data.content);
+					$scope.greeting = data;
+				});
+	}
+</script>
+</head>
+
+<body>
+	<div ng-controller="Hello">
+		<p>The ID is {{greeting.id}}</p>
+		<p>The is {{greeting.content}}</p>
+	</div>
+</body>
+</html>
