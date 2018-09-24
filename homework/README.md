@@ -1,8 +1,8 @@
 ## INFO6250-WebTools
 ## Programming Assignments
 
-	### Homework 2 </br>
- Part 2.   </br>
+### Homework 2 </br>
+  Part 2.   </br>
     Write a servlet that displays request headers using:  </br>
     Enumeration getHeaderNames().  </br>
     Enumeration getHeaders(String name).  </br>
@@ -31,10 +31,13 @@
   Part 4.   </br>
     Create a JSP page that uses at least 3 JSTL tags from each tag library group, i.e.,3 tags from Core Tag Lib, 3 tags from Formatting 
     Tag Lib, etc. You could use random content on the JSP page. </br>
+    
   Part 5.   </br>
     Redo Lab 3 project, but replace the scriptlet tags with JSTL and EL. </br>
+    
   Part 6.   </br>
     Convert Lab 3 to a Spring MVC Application. </br>
+    
   Part 7.   </br>
     Convert H2Part7 to a Spring MVC Application. </br> </br>
     
